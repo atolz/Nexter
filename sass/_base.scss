@@ -1,0 +1,131 @@
+// COLOR VARIABLES
+$color-primary: #c69963;
+$color-primary-dark: #b28451;
+
+$color-secondary: #101d2c;
+
+$color-grey-light-1: #f9f7f6;
+$color-grey-light-2: #aaa;
+
+$color-grey-dark-1: #54483a;
+$color-grey-dark-2: #6d5d4b;
+
+// FONT VARIABLES
+$font-primary: "Nunito", sans-serif;
+$font-display: "Josefin Sans", sans-serif;
+
+//MEDIA QUERY
+$bp-lg: 75em;
+$bp-md: 68.75em;
+$bp-sm: 60.625em;
+$bp-xsm: 38.125em;
+$bp-xxsm: 34.375em;
+
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; // 10px/16px = 52.6%
+
+  @media only screen and (max-width: $bp-lg) {
+    font-size: 55%;
+  }
+  @media only screen and (max-width: $bp-xxsm) {
+    font-size: 50%;
+  }
+}
+
+body {
+  font-family: $font-primary;
+  font-weight: 300;
+  line-height: 1.6;
+  color: $color-grey-dark-2;
+}
+
+.container {
+  display: grid;
+
+  grid-auto-rows: 40rem;
+  grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+  grid-template-columns:
+    [sidebar-start] 8rem [sidebar-end full-start] minmax(
+      6rem,
+      1fr
+    ) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
+    [center-end] minmax(6rem, 1fr) [full-end];
+
+  grid-template-areas:
+    "sidebar head head head head head head head real real real"
+    "sidebar . features features features features features features features features ."
+    "sidebar storypic storypic storypic storypic storypic storycon storycon storycon storycon storycon"
+    "sidebar . home home home home home home home home ."
+    "sidebar gallery gallery gallery gallery gallery gallery gallery gallery gallery gallery"
+    "sidebar footer footer footer footer footer footer footer footer footer footer";
+
+  @media only screen and (max-width: $bp-md) {
+    grid-template-rows: 7rem 80vh min-content 40vw repeat(3, min-content);
+    grid-template-columns:[full-start] minmax(
+      6rem,
+      1fr
+    ) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
+    [center-end] minmax(6rem, 1fr) [full-end];
+
+    grid-template-areas:
+      "sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar"
+      "header header header header header header header header header header"
+      ". features features features features features features features features ."
+      "storypic storypic storypic storypic storypic storycon storycon storycon storycon storycon"
+      ". home home home home home home home home ."
+      " gallery gallery gallery gallery gallery gallery gallery gallery gallery gallery"
+      "footer footer footer footer footer footer footer footer footer footer";
+  }
+
+  @media only screen and (max-width: $bp-sm){
+    grid-template-rows: 7rem 80vh min-content min-content  50vw repeat(3, min-content);
+    
+    grid-template-areas:
+      "sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar"
+      "header header header header header header header header header header"
+      "realtor realtor realtor realtor realtor realtor realtor realtor realtor realtor"
+      ". features features features features features features features features ."
+      "storycon storycon storycon storycon storycon storycon storycon storycon storycon storycon"
+      "storypic storypic storypic storypic storypic storypic storypic storypic storypic storypic"
+      ". home home home home home home home home ."
+      " gallery gallery gallery gallery gallery gallery gallery gallery gallery gallery"
+      "footer footer footer footer footer footer footer footer footer footer";
+  }
+
+  @media only screen and (max-width: $bp-xxsm){
+    grid-template-rows: 5.9rem 90vh min-content min-content min-content  50vw repeat(3, min-content);
+  }
+  & > * {
+    // font-size: 3rem;
+    // padding: 40px;
+  }
+  }
+ 
+
+  .btn {
+    background-color: $color-primary;
+    border: none;
+    border-radius: 0;
+    padding: 1.8rem 3rem;
+    color: #fff;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-family: $font-display;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+      background-color: $color-primary-dark;
+    }
+  }
+

@@ -1,0 +1,64 @@
+.story {
+  &__pictures {
+    background-color: $color-secondary;
+    // grid-column: full-start / col-end 4;
+    grid-area: storypic;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    align-items: center;
+    background-image: linear-gradient(
+        rgba($color-primary, 0.5),
+        rgba($color-primary, 0.5)
+      ),
+      url(../img/back.jpg);
+
+      @media only screen and (max-width: $bp-sm){
+        justify-items: center;
+      }
+  }
+
+  &__img--1 {
+    width: 100%;
+    grid-area: 2/2/-2/-2;
+    box-shadow: 0 2rem 5rem rgba(#000, 0.5);
+
+    @media only screen and (max-width: $bp-sm){
+      // grid-area: storypic;
+      width: 80%;
+      grid-area: 2/1/6/4;
+    }
+
+    
+  }
+
+  &__img--2 {
+    width: 115%;
+    z-index: 10;
+    grid-area: 4/4/6/-1;
+    box-shadow: 0 2rem 5rem rgba(#000, 0.2);
+
+    @media only screen and (max-width: $bp-sm){
+      width: 80%;
+      
+    }
+
+  }
+
+  &__content {
+    background-color: $color-grey-light-1;
+    // grid-column: col-start 5/ full-end;
+    grid-area: storycon;
+    padding: 6rem 10vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+
+  }
+
+  &__text {
+    font-style: italic;
+    font-size: 1.5rem;
+  }
+}
