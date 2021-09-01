@@ -1,2 +1,2 @@
 # Nexter
-Link: atolz.github.io/Nexter/
+atolz.github.io/Nexter/
